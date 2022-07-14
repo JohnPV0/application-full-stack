@@ -1,0 +1,19 @@
+<div style="text-align: center">
+    <button *ngIf="!personaService.isOpen" style="cursor:pointer;" (click)="irAgregar()">+</button>
+    <button class="button-red" *ngIf="personaService.isOpen" style="cursor:pointer;" (click)="regresar()">x</button>
+</div>
+
+<!--incrusta el componente de formulario-->
+<router-outlet></router-outlet>
+
+<div class="box">
+    <div class="item" *ngFor="let persona of personas">
+        <ul>
+            <li>
+                <a [routerLink]="['/personas', persona.idPersona]">
+                    {{persona.idPersona}} - {{persona.nombre}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
